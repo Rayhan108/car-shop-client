@@ -13,11 +13,7 @@ const Navbar = () => {
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
-  //   const themeToggle=(mode:string)=>{
-  // setMode(mode)
-  //   }
-  // const theme =localStorage.getItem('vite-ui-theme') as string
-  // setMode(theme)
+
   return (
     <nav
       className={cn(

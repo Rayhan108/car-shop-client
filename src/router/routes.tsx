@@ -1,5 +1,6 @@
 import Main from "@/Layout/Main";
 import Home from "@/Pages/Home/Home";
+import Login from "@/Pages/Login/Login";
 import {
     createBrowserRouter,
   } from "react-router-dom";
@@ -11,6 +12,10 @@ import {
           {
             path: "/",
             element: <Home></Home>,
+          },
+          {
+            path: "/login",
+            element: <Login/>,
           },
         ]
     }
