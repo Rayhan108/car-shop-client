@@ -1,6 +1,6 @@
 const Footer = () => {
     return (
-      <div className="w-full rounded-t-3xl bg-gray-900 text-white p-10 mt-20">
+      <div className="w-full rounded-t-3xl bg-[#003d1f] text-white p-10 mt-20">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-10">
           <div>
             <span className="footer-title font-title">NextGen Cars</span>

@@ -28,7 +28,7 @@ const Login = () => {
           const user = verifyToken(res.data.accessToken) as TUser;
           console.log("dispatchUser",user);
           dispatch(setUser({ user: user, token: res.data.accessToken }));
-          toast("Login Success")
+          toast.success("Login Success")
 
           navigate('/');
     }

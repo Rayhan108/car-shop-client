@@ -4,16 +4,27 @@ import { ShoppingCart } from "lucide-react";
 import { ModeToggle } from "@/components/mode-toggle/mode-toggle";
 import { cn } from "@/lib/utils";
 import logo from "../assets/logo.png";
+import {  logout, selectCurrentUser } from "@/redux/features/auth/authSlice";
+import { useAppDispatch, useAppSelector } from "@/redux/hooks";
+import { toast } from "sonner";
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
   const [mode, setMode] = useState("light");
+
   console.log(mode);
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
+const user = useAppSelector(selectCurrentUser);
+// console.log(user);
+const dispatch = useAppDispatch();
+const handleLogout=()=>{
+dispatch(logout())
+toast.success("Logout Success")
 
+}
   return (
     <nav
       className={cn(
@@ -89,12 +100,22 @@ const Navbar = () => {
                     >
                       Dashboard
                     </Link>
-                    <Link
+                    {
+                      user ?   <Link onClick={()=>handleLogout()}
+                      to="/logOut"
+                      className="block px-4 py-2 text-sm  hover:bg-gray-100"
+                    >
+                      LogOut
+                    </Link> :
+                     <Link
                       to="/login"
                       className="block px-4 py-2 text-sm  hover:bg-gray-100"
                     >
                       Login
-                    </Link>
+                    </Link>  
+                   
+                    }
+                
                   </div>
                 </div>
               )}
@@ -170,12 +191,21 @@ const Navbar = () => {
               >
                 Dashboard
               </Link>
-              <Link
-                to="/login"
-                className="block px-3 py-2 text-base font-medium  hover:bg-gray-50"
-              >
-                Login
-              </Link>
+              {
+                      user ?   <Link onClick={()=>handleLogout()}
+                      to="/logOut"
+                      className="block px-4 py-2 text-sm  hover:bg-gray-100"
+                    >
+                      LogOut
+                    </Link> :
+                     <Link
+                      to="/login"
+                      className="block px-4 py-2 text-sm  hover:bg-gray-100"
+                    >
+                      Login
+                    </Link>  
+                   
+                    }
             </div>
           </div>
         )}
