@@ -83,7 +83,7 @@ const Navbar = () => {
                   to=""
                   className="block px-4 py-2 text-sm  "
                 >
-                  LogOut
+                  signOut
                 </Link>{" "}
               </Button>
             ) : (
@@ -171,7 +171,7 @@ const Navbar = () => {
                   to=""
                   className="block px-4 py-2 text-sm  hover:bg-gray-100"
                 >
-                  LogOut
+                  signOut
                 </Link>
               ) : (
                 <Link
