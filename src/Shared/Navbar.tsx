@@ -1,30 +1,32 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { ShoppingCart } from "lucide-react";
 import { ModeToggle } from "@/components/mode-toggle/mode-toggle";
 import { cn } from "@/lib/utils";
 import logo from "../assets/logo.png";
-import {  logout, selectCurrentUser } from "@/redux/features/auth/authSlice";
+import { logout, selectCurrentUser } from "@/redux/features/auth/authSlice";
 import { useAppDispatch, useAppSelector } from "@/redux/hooks";
 import { toast } from "sonner";
+import { Button } from "@/components/ui/button";
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [isOpen, setIsOpen] = useState(false);
+  const navigate = useNavigate();
   const [mode, setMode] = useState("light");
 
-  console.log(mode);
+  // console.log(mode);
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
-const user = useAppSelector(selectCurrentUser);
-// console.log(user);
-const dispatch = useAppDispatch();
-const handleLogout=()=>{
-dispatch(logout())
-toast.success("Logout Success")
 
-}
+  const user = useAppSelector(selectCurrentUser);
+
+  const dispatch = useAppDispatch();
+  const handleLogout = () => {
+    dispatch(logout());
+    navigate('/login');
+    toast.success("Logout Success");
+  };
   return (
     <nav
       className={cn(
@@ -68,58 +70,30 @@ toast.success("Logout Success")
             >
               Contact
             </Link>
+            <Link to="/dashboard" className="block px-4 py-2 text-sm  ">
+              Dashboard
+            </Link>
             <Link to="/cart" className=" hover:text-gray-900">
               <ShoppingCart className="h-5 w-5" />
             </Link>
-            <div>
-              <div
-                onClick={() =>
-                  setMode(localStorage.getItem("vite-ui-theme") as string)
-                }
-              >
-                <ModeToggle />
-              </div>
-            </div>
-
-            <div className="relative">
-              {/* User Avatar Button */}
-              <button
-                onClick={() => setIsOpen(!isOpen)}
-                className="flex text-sm border-2 border-transparent rounded-full focus:outline-none focus:border-gray-300"
-              >
-                <img className="h-8 w-8 rounded-full" src="" alt="User" />
-              </button>
-
-              {/* Dropdown Content */}
-              {isOpen && (
-                <div className="origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 font-body">
-                  <div className="py-1">
-                    <Link
-                      to="/dashboard"
-                      className="block px-4 py-2 text-sm  hover:bg-gray-100"
-                    >
-                      Dashboard
-                    </Link>
-                    {
-                      user ?   <Link onClick={()=>handleLogout()}
-                      to="/logOut"
-                      className="block px-4 py-2 text-sm  hover:bg-gray-100"
-                    >
-                      LogOut
-                    </Link> :
-                     <Link
-                      to="/login"
-                      className="block px-4 py-2 text-sm  hover:bg-gray-100"
-                    >
-                      Login
-                    </Link>  
-                   
-                    }
-                
-                  </div>
-                </div>
-              )}
-            </div>
+            {user ? (
+              <Button>
+                <Link
+                  onClick={() => handleLogout()}
+                  to=""
+                  className="block px-4 py-2 text-sm  "
+                >
+                  LogOut
+                </Link>{" "}
+              </Button>
+            ) : (
+              <Button>
+                {" "}
+                <Link to="/login" className="block px-4 py-2 text-sm  ">
+                  Login
+                </Link>{" "}
+              </Button>
+            )}
           </div>
 
           {/* Mobile Menu Toggle */}
@@ -191,21 +165,22 @@ toast.success("Logout Success")
               >
                 Dashboard
               </Link>
-              {
-                      user ?   <Link onClick={()=>handleLogout()}
-                      to="/logOut"
-                      className="block px-4 py-2 text-sm  hover:bg-gray-100"
-                    >
-                      LogOut
-                    </Link> :
-                     <Link
-                      to="/login"
-                      className="block px-4 py-2 text-sm  hover:bg-gray-100"
-                    >
-                      Login
-                    </Link>  
-                   
-                    }
+              {user ? (
+                <Link
+                  onClick={() => handleLogout()}
+                  to=""
+                  className="block px-4 py-2 text-sm  hover:bg-gray-100"
+                >
+                  LogOut
+                </Link>
+              ) : (
+                <Link
+                  to="/login"
+                  className="block px-4 py-2 text-sm  hover:bg-gray-100"
+                >
+                  Login
+                </Link>
+              )}
             </div>
           </div>
         )}
