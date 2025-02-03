@@ -1,0 +1,35 @@
+import { baseApi } from "@/redux/api/baseApi";
+import { Tcar, TQueryParam, TResponseRedux } from "@/types/global.type";
+
+
+const productApi = baseApi.injectEndpoints({
+  endpoints: (builder) => ({
+    getAllProducts: builder.query({
+        query: (args) => {
+          const params = new URLSearchParams();
+  
+          if (args) {
+            args.forEach((item: TQueryParam) => {
+              params.append(item.name, item.value as string);
+            });
+          }
+  
+          return {
+            url: '/car/cars',
+            method: 'GET',
+            params: params,
+          };
+        },
+        providesTags: ['products'],
+        transformResponse: (response: TResponseRedux<Tcar[]>) => {
+          return {
+            data: response.data,
+          };
+        },
+      }),
+
+
+  }),
+});
+
+export const { useGetAllProductsQuery } = productApi;

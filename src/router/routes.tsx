@@ -1,4 +1,5 @@
 import Main from "@/Layout/Main";
+import AllProduct from "@/Pages/AllProduct/AllProduct";
 import Home from "@/Pages/Home/Home";
 import Login from "@/Pages/Login/Login";
 import Registration from "@/Pages/Registration/Registration";
@@ -13,6 +14,10 @@ import {
           {
             path: "/",
             element: <Home></Home>,
+          },
+          {
+            path: "/allProducts",
+            element: <AllProduct/>,
           },
           {
             path: "/login",

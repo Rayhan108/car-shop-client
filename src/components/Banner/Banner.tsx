@@ -7,20 +7,7 @@ import {
 } from "@/components/ui/carousel";
 import Autoplay from "embla-carousel-autoplay";
 
-export function Example() {
-  return (
-    <Carousel
-      plugins={[
-        Autoplay({
-          delay: 2000,
-        }),
-      ]}
-    >
-      // ...
-    </Carousel>
-  );
-}
-
+//banner image data
 const Banner = () => {
   const banners = [
     {
@@ -39,6 +26,39 @@ const Banner = () => {
 
       image:
         "https://i.ibb.co.com/nqCTRvyF/Green-and-Yellow-Simple-Clean-Shoes-Sale-Banner-1.png",
+    },
+  
+    {
+      id: 4,
+
+      image:
+        "https://i.ibb.co.com/HDYFDyk3/Black-and-White-Car-Sale-Discount-Banner.png",
+    },
+   
+
+    {
+      id: 5,
+
+      image:
+        "https://i.ibb.co.com/v6vCFy7L/Red-and-White-Modern-Car-Sale-Promotion-Banner.png",
+    },
+    {
+      id: 6,
+
+      image:
+        "https://i.ibb.co.com/cKf1Td4s/White-and-Pink-Modern-Auto-Parts-Sale-Banner.png",
+    },
+    {
+      id: 7,
+
+      image:
+        "https://i.ibb.co.com/tPZZcTd3/Yellow-and-Black-Dark-and-Dynamic-Car-Sales-and-Promos-Business-Banner.png",
+    },
+    {
+      id: 8,
+
+      image:
+        "https://i.ibb.co.com/MxQTMP7R/Yellow-and-White-Modern-Car-Sale-Banner.png",
     },
   ];
 

@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { ShoppingCart } from "lucide-react";
-import { ModeToggle } from "@/components/mode-toggle/mode-toggle";
 import { cn } from "@/lib/utils";
 import logo from "../assets/logo.png";
 import { logout, selectCurrentUser } from "@/redux/features/auth/authSlice";
@@ -53,7 +52,7 @@ const Navbar = () => {
               Home
             </Link>
             <Link
-              to="/products"
+              to="/allProducts"
               className="text-sm font-medium  hover:text-gray-900"
             >
               All Products
@@ -94,6 +93,7 @@ const Navbar = () => {
                 </Link>{" "}
               </Button>
             )}
+            {/* <ModeToggle/> */}
           </div>
 
           {/* Mobile Menu Toggle */}
@@ -128,8 +128,8 @@ const Navbar = () => {
                 Home
               </Link>
               <Link
-                to="/products"
-                className="block px-3 py-2 text-base font-medium  hover:bg-gray-50"
+                to="/allProducts"
+                className="block  px-3 py-2 text-base font-medium  hover:bg-[#003d1f] "
               >
                 All Products
               </Link>
@@ -157,7 +157,7 @@ const Navbar = () => {
                   setMode(localStorage.getItem("vite-ui-theme") as string)
                 }
               >
-                <ModeToggle />
+                {/* <ModeToggle /> */}
               </div>
               <Link
                 to="/dashboard"
