@@ -1,6 +1,7 @@
 import ProductCard from "@/components/Product-Card/ProductCard";
 import { useGetAllProductsQuery } from "@/redux/features/products/productApi";
 import { useState } from "react";
+import { Helmet } from "react-helmet-async";
 
 const AllProduct = () => {
   // brand select data
@@ -149,37 +150,122 @@ const AllProduct = () => {
       label: "Convertible",
     },
   ];
+  //  model select data
 
+  const model = [
+    {
+      id: 1,
+      value: "cr-v",
+      label: "CR-V",
+    },
+    {
+      id: 2,
+      value: "camry",
+      label: "Camry",
+    },
+    {
+      id: 3,
+      value: "range rover velar",
+      label: "Range Rover Velar",
+    },
+    {
+      id: 4,
+      value: "s-class cabriolet",
+      label: "S-Class Cabriolet",
+    },
+    {
+      id: 5,
+      value: "r8 spyder",
+      label: "R8 Spyder",
+    },
+    {
+      id: 6,
+      value: "prius",
+      label: "Prius",
+    },
+    {
+      id: 7,
+      value: "488 spider",
+      label: "488 Spider",
+    },
+    {
+      id: 8,
+      value: "aventador s",
+      label: "Aventador S",
+    },
+    {
+      id: 9,
+      value: "m4 convertible",
+      label: "M4 Convertible",
+    },
+  ];
+
+  const [priceRange, setPriceRange] = useState([0, 100000000]);
   const [searchTerm, setSearchTerm] = useState("");
   const [categoryFilter, setCategoryFilter] = useState("");
   const [brandFilter, setBrandFilter] = useState("");
+  const [modelFilter, setModelFilter] = useState("");
   const [sortOrder, setSortOrder] = useState("asc");
+  const [availability, setAvailability] = useState("");
   const queryParams = {
     brand: searchTerm || brandFilter || undefined,
     category: categoryFilter || undefined,
+    model: modelFilter || undefined,
+    search: searchTerm || undefined,
     sortBy: sortOrder || undefined,
+    minPrice: priceRange[0] || undefined,
+    maxPrice: priceRange[1] || undefined,
+    availability: availability || undefined,
   };
   const { data: products, isFetching } = useGetAllProductsQuery(queryParams);
-  console.log(products);
-  console.log(isFetching);
+  // console.log(products);
+  // console.log(isFetching);
+
+  // Loader
   if (isFetching) {
+    console.log("fetching");
     <div>Loader...</div>;
   }
+  // if (!products && !isFetching) return <div>No product found</div>;
   return (
-    <div className="flex flex-col md:flex-row min-h-screen bg-gray-100">
-
+    
+    <div className="flex flex-col md:flex-row min-h-screen ">
+       <Helmet> <title>NextGen Cars | All-Products</title></Helmet>
       {/* Sidebar */}
-      <aside className="w-full  md:w-1/4 p-6 bg-white shadow-md">
+      <aside className="w-full   md:w-1/4 p-6 md:py-6 bg-white shadow-2xl">
+        {/* search */}
         <h2 className="text-lg font-title font-bold mb-4">Search</h2>
         <input
           type="text"
           placeholder="Search Products"
           value={searchTerm}
           onChange={(e) => setSearchTerm(e.target.value)}
-          className="w-full px-4 py-2 mb-4 border rounded-lg focus:ring focus:border-blue-500"
+          className="w-full px-4 py-2 mb-4 border rounded-lg focus:ring"
         />
+        <label className="block mb-2 font-title font-bold">Price Range</label>
+        <div className="flex gap-4">
+          <input
+            type="number"
+            value={priceRange[0]}
+            onChange={(e) =>
+              setPriceRange([Number(e.target.value), priceRange[1]])
+            }
+            placeholder="Min Price"
+            className="w-1/2 px-4 py-2 border rounded-lg"
+          />
+          <input
+            type="number"
+            value={priceRange[1]}
+            onChange={(e) =>
+              setPriceRange([priceRange[0], Number(e.target.value)])
+            }
+            placeholder="Max Price"
+            className="w-1/2 px-4 py-2 border rounded-lg"
+          />
+        </div>
 
-        <label className="block mb-2 font-medium">Category</label>
+        {/* category */}
+        <label className="block mb-2 font-title font-bold">Category</label>
         <select
           onChange={(e) => setCategoryFilter(e.target.value)}
           className="w-full px-4 py-2 border rounded-lg mb-6"
@@ -191,8 +277,8 @@ const AllProduct = () => {
             </option>
           ))}
         </select>
-
-        <label className="block mb-2 font-medium">Brand</label>
+        {/* brand */}
+        <label className="block mb-2 font-title font-bold">Brand</label>
         <select
           onChange={(e) => setBrandFilter(e.target.value)}
           className="w-full px-4 py-2 border rounded-lg"
@@ -203,6 +289,29 @@ const AllProduct = () => {
               {item.brand}
             </option>
           ))}
+        </select>
+        {/* model */}
+        <label className="block mb-2 font-title font-bold">Model</label>
+        <select
+          onChange={(e) => setModelFilter(e.target.value)}
+          className="w-full px-4 py-2 border rounded-lg"
+        >
+          <option value="">All</option>
+          {model.map((item, id) => (
+            <option key={id} value={item.value}>
+              {item.label}
+            </option>
+          ))}
+        </select>
+        {/* Availability */}
+        <label className="block mb-2 font-title font-bold">Availability</label>
+        <select
+          onChange={(e) => setAvailability(e.target.value)}
+          className="w-full px-4 py-2 border rounded-lg mb-6"
+        >
+          <option value="">All</option>
+          <option value="in-stock">In Stock</option>
+          <option value="out-of-stock">Out of Stock</option>
         </select>
       </aside>
 
