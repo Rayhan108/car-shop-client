@@ -1,5 +1,5 @@
 import { baseApi } from "@/redux/api/baseApi";
-import { Tcar, TQueryParam, TResponseRedux } from "@/types/global.type";
+import { Tcar,TResponseRedux } from "@/types/global.type";
 
 
 const productApi = baseApi.injectEndpoints({
@@ -8,12 +8,16 @@ const productApi = baseApi.injectEndpoints({
         query: (args) => {
           const params = new URLSearchParams();
   
-          if (args) {
-            args.forEach((item: TQueryParam) => {
-              params.append(item.name, item.value as string);
+          // if (args) {
+          //   args.forEach((item: TQueryParam) => {
+          //     params.append(item.name, item.value as string);
+          //   });
+          // }
+          if (args && typeof args === "object") {
+            Object.entries(args).forEach(([key, value]) => {
+              if (value) params.append(key, value.toString()); // Convert value to string
             });
           }
-  
           return {
             url: '/car/cars',
             method: 'GET',

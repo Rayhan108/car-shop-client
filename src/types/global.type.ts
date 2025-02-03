@@ -1,6 +1,7 @@
 import { BaseQueryApi } from "@reduxjs/toolkit/query";
 
 export type Tcar ={
+  _id:string;
   brand:string;
   model:string;
   year:number;

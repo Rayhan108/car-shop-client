@@ -20,6 +20,10 @@ import {
             element: <AllProduct/>,
           },
           {
+            path: "/product/:id",
+            element: <AllProduct/>,
+          },
+          {
             path: "/login",
             element: <Login/>,
           },
