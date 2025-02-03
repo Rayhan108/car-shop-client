@@ -10,9 +10,7 @@ const FeatureProducts = () => {
   // console.log(isFetching);
 
   // Loader
-  if (isFetching) {
-   <Loader/>
-  }
+  if (isFetching) return <Loader />;
   return (
     <div>
       <SectionTitle header={"Featured Products"} />
@@ -55,7 +53,7 @@ const FeatureProducts = () => {
       <div className="flex mt-8 justify-center">
         <Link to="/allProducts">
           {" "}
-          <Button className="bg-[#002a14]">All Products</Button>
+          <Button className="bg-[#002a14]">View All</Button>
         </Link>
       </div>
     </div>

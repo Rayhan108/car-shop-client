@@ -9,8 +9,11 @@ import { setUser, TUser } from "@/redux/features/auth/authSlice";
 import { verifyToken } from "@/utils/verifyToken";
 import { Link, useNavigate } from "react-router-dom";
 import { toast } from "sonner";
+import { useState } from "react";
+import Loader from "@/components/Loader/Loader";
 
 const Login = () => {
+  const [loading,setLoading]=useState(false)
   const form = useForm();
   const navigate = useNavigate();
   const dispatch = useAppDispatch();
@@ -24,11 +27,14 @@ const Login = () => {
       };
    
       const res = await login(userInfo).unwrap();
+      setLoading(true)
       const user = verifyToken(res.data.accessToken) as TUser;
     //   console.log("dispatchUser", user);
       dispatch(setUser({ user: user, token: res.data.accessToken }));
+      setLoading(false)
       toast.success(res?.message);
       navigate("/");
+      if (loading) return <Loader />;
  // eslint-disable-next-line @typescript-eslint/no-explicit-any
  }catch(err:any){
     toast.error(err?.data?.message)

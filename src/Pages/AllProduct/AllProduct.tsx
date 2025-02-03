@@ -223,9 +223,7 @@ const AllProduct = () => {
   // console.log(isFetching);
 
   // Loader
-  if (isFetching) {
-    <Loader />;
-  }
+  if (isFetching) return <Loader />;
   // if (!products && !isFetching) return <div>No product found</div>;
   return (
     <div className="flex flex-col md:flex-row min-h-screen ">

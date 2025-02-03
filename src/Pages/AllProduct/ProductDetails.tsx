@@ -3,7 +3,7 @@ import { useGetSingleProductQuery } from "@/redux/features/products/productApi";
 import { Tcar } from "@/types/global.type";
 import { Helmet } from "react-helmet-async";
 
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { toast } from "sonner";
 import Loader from "@/components/Loader/Loader";
 
@@ -73,9 +73,11 @@ const ProductDetails = () => {
           </div>
 
           <div className="sm:col-span-4 font-body text-center mt-8 flex justify-center gap-6">
-            <Button className="hover:bg-[#003d1f] bg-[#003d1f] text-white font-bold py-4 px-12 rounded-lg shadow-lg transition duration-300 hover:shadow-2xl transform hover:scale-105">
+          <Link to="/checkout">
+          <Button className="hover:bg-[#003d1f] bg-[#003d1f] text-white font-bold py-4 px-12 rounded-lg shadow-lg transition duration-300 hover:shadow-2xl transform hover:scale-105">
               Buy Now
             </Button>
+          </Link>
           </div>
         </div>
       </div>
