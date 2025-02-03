@@ -1,3 +1,4 @@
+import Loader from "@/components/Loader/Loader";
 import ProductCard from "@/components/Product-Card/ProductCard";
 import { useGetAllProductsQuery } from "@/redux/features/products/productApi";
 import { useState } from "react";
@@ -223,14 +224,15 @@ const AllProduct = () => {
 
   // Loader
   if (isFetching) {
-    console.log("fetching");
-    <div>Loader...</div>;
+    <Loader />;
   }
   // if (!products && !isFetching) return <div>No product found</div>;
   return (
-    
     <div className="flex flex-col md:flex-row min-h-screen ">
-       <Helmet> <title>NextGen Cars | All-Products</title></Helmet>
+      <Helmet>
+        {" "}
+        <title>NextGen Cars | All-Products</title>
+      </Helmet>
       {/* Sidebar */}
       <aside className="w-full   md:w-1/4 p-6 md:py-6 bg-white shadow-2xl">
         {/* search */}
