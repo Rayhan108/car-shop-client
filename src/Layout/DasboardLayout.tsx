@@ -2,7 +2,7 @@
 import { Button } from "@/components/ui/button";
 import { selectCurrentUser } from "@/redux/features/auth/authSlice";
 import { useAppSelector } from "@/redux/hooks";
-import { ArrowRightLeft, Car, Home, House, UserRoundPen } from "lucide-react";
+import { ArrowRightLeft, Car, Home, House, Menu, UserRoundPen } from "lucide-react";
 import { useState } from "react";
 
 import { Link, Outlet } from "react-router-dom";
@@ -31,19 +31,11 @@ const DashboardLayout = () => {
                   onClick={() => setSidebarOpen(!sidebarOpen)}
                   className=" focus:outline-none "
                 >
-                  {/* <FaCog size={24} /> */}
+               <Menu />
                 </Button>
               </div>
             </li>
-            {/* <li className="mb-6">
-              <Link
-                to="/dashboard"
-                className="flex font-body items-center space-x-4  "
-              >
-         
-                <span>Dashboard</span>
-              </Link>
-            </li> */}
+      
             {/* admin route */}
             {user?.role == 'admin' && (
               <>
@@ -117,13 +109,10 @@ const DashboardLayout = () => {
               onClick={() => setSidebarOpen(!sidebarOpen)}
               className=" focus:outline-none "
             >
-              {/* <FaCog size={24} /> */}
+             <Menu />
             </Button>
           </div>
           <h2 className="text-2xl font-title  font-semibold">Dashboard</h2>
-          {/* <div className="hidden md:block">
-            <span className="text-gray-700">Welcome, {isAdmin ? 'Admin' : user?.displayName}</span>
-          </div> */}
         </header>
         <main className="flex-1 overflow-x-hidden overflow-y-auto  p-4 sm:p-6 md:p-8 lg:p-10">
           <Outlet></Outlet>
