@@ -60,6 +60,15 @@ const DashboardLayout = () => {
                 </li>
                 <li className="mb-6">
                   <Link
+                    to="/dashboard/manageUsers"
+                    className="flex items-center space-x-4 font-body"
+                  >
+                 <UserRoundPen />
+                    <span>Manage User</span>
+                  </Link>
+                </li>
+                <li className="mb-6">
+                  <Link
                     to="/"
                     className="flex items-center space-x-4 font-body"
                   >

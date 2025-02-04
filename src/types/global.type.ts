@@ -13,7 +13,13 @@ export type Tcar ={
   inStock:boolean;
 
 }
-
+export  type TUsers = {
+_id:string;
+name:string;
+email:string;
+role:string;
+status:string;
+}
 
 export type TError = {
     data: {

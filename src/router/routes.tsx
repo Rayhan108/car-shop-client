@@ -5,6 +5,7 @@ import ProductDetails from "@/Pages/AllProduct/ProductDetails";
 import CheckOut from "@/Pages/CheckOut/CheckOut";
 import CreateProduct from "@/Pages/DashBoard/Admin/CreateProduct";
 import ManageProduct from "@/Pages/DashBoard/Admin/ManageProducts";
+import ManageUser from "@/Pages/DashBoard/Admin/ManageUser";
 import UpdateProduct from "@/Pages/DashBoard/Admin/UpdateProduct";
 
 import DashBoard from "@/Pages/DashBoard/DashBoard";
@@ -63,6 +64,10 @@ import {
         {
           path: "manageProducts",
           element:  <ManageProduct />
+        },
+        {
+          path: "manageUsers",
+          element:  <ManageUser />
         },
         {
           path: "updateProduct/:id",
