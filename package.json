@@ -37,6 +37,7 @@
     "react-redux": "^9.2.0",
     "react-router-dom": "^7.1.5",
     "react-spinners": "^0.15.0",
+    "recharts": "^2.15.1",
     "redux-persist": "^6.0.0",
     "sonner": "^1.7.4",
     "sort-by": "^1.2.0",

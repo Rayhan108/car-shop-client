@@ -1,16 +1,18 @@
 import DashboardLayout from "@/Layout/DasboardLayout";
 import Main from "@/Layout/Main";
 import ProtectedRoute from "@/Layout/ProtectedRoute";
+import About from "@/Pages/About/About";
 import AllProduct from "@/Pages/AllProduct/AllProduct";
 import ProductDetails from "@/Pages/AllProduct/ProductDetails";
 import CheckOut from "@/Pages/CheckOut/CheckOut";
+import Contact from "@/Pages/Contact/Contact";
 import CreateProduct from "@/Pages/DashBoard/Admin/CreateProduct";
 import ManageProduct from "@/Pages/DashBoard/Admin/ManageProducts";
 import ManageUser from "@/Pages/DashBoard/Admin/ManageUser";
 import UpdateProduct from "@/Pages/DashBoard/Admin/UpdateProduct";
 
 import DashBoard from "@/Pages/DashBoard/DashBoard";
-import ManageProfile from "@/Pages/DashBoard/User/manageProfile";
+import ManageProfile from "@/Pages/DashBoard/User/ManageProfile";
 import ErrorPage from "@/Pages/ErrorPage/ErrorPage";
 import Home from "@/Pages/Home/Home";
 import Login from "@/Pages/Login/Login";
@@ -27,6 +29,14 @@ import {
           {
             path: "/",
             element: <Home></Home>,
+          },
+          {
+            path: "/about",
+            element: <About/>,
+          },
+          {
+            path: "/contact",
+            element: <Contact/>,
           },
           {
             path: "/allProducts",

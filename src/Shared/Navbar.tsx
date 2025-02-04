@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { ShoppingCart } from "lucide-react";
+
 import { cn } from "@/lib/utils";
 import logo from "../assets/logo.png";
 import { logout, selectCurrentUser } from "@/redux/features/auth/authSlice";
@@ -72,9 +72,7 @@ const Navbar = () => {
             <Link to="/dashboard" className="block px-4 py-2 text-sm  ">
               Dashboard
             </Link>
-            <Link to="/cart" className=" hover:text-gray-900">
-              <ShoppingCart className="h-5 w-5" />
-            </Link>
+       
             {user ? (
               <Button>
                 <Link
@@ -145,13 +143,7 @@ const Navbar = () => {
               >
                 Contact
               </Link>
-              <Link
-                to="/cart"
-                className="block px-3 py-2 text-base font-medium  hover:bg-gray-50"
-              >
-                <ShoppingCart className="inline h-5 w-5 mr-2" />
-                Cart
-              </Link>
+           
            
                 {/* <ModeToggle /> */}
        
