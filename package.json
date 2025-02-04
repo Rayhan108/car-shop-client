@@ -24,6 +24,7 @@
     "clsx": "^2.1.1",
     "embla-carousel-autoplay": "^8.5.2",
     "embla-carousel-react": "^8.5.2",
+    "jsonwebtoken": "^9.0.2",
     "jwt-decode": "^4.0.0",
     "localforage": "^1.10.0",
     "lucide-react": "^0.474.0",
@@ -45,6 +46,7 @@
   },
   "devDependencies": {
     "@eslint/js": "^9.17.0",
+    "@types/jsonwebtoken": "^9.0.8",
     "@types/node": "^22.13.0",
     "@types/react": "^18.3.18",
     "@types/react-dom": "^18.3.5",

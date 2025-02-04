@@ -1,5 +1,6 @@
 import DashboardLayout from "@/Layout/DasboardLayout";
 import Main from "@/Layout/Main";
+import ProtectedRoute from "@/Layout/ProtectedRoute";
 import AllProduct from "@/Pages/AllProduct/AllProduct";
 import ProductDetails from "@/Pages/AllProduct/ProductDetails";
 import CheckOut from "@/Pages/CheckOut/CheckOut";
@@ -37,7 +38,7 @@ import {
           },
           {
             path: "/checkout",
-            element:<CheckOut/>,
+            element:<ProtectedRoute role="user"><CheckOut/></ProtectedRoute>,
           },
           {
             path: "/login",
@@ -60,25 +61,25 @@ import {
         },
         {
           path: "createProduct",
-          element:  <CreateProduct />
+          element:<ProtectedRoute role="admin"><CreateProduct /></ProtectedRoute>  
         },
         {
           path: "manageProducts",
-          element:  <ManageProduct />
+          element: <ProtectedRoute role="admin"> <ManageProduct /></ProtectedRoute>
         },
         {
           path: "manageUsers",
-          element:  <ManageUser />
+          element: <ProtectedRoute role="admin"> <ManageUser /></ProtectedRoute>
+        },
+    
+        {
+          path: "updateProduct/:id",
+          element:  <ProtectedRoute role="admin"><UpdateProduct /></ProtectedRoute>
         },
         {
           path: "manageProfile",
-          element:  <ManageProfile />
+          element: <ProtectedRoute role="user"> <ManageProfile /></ProtectedRoute>
         },
-        {
-          path: "updateProduct/:id",
-          element:  <UpdateProduct />
-        },
-    
  
       ],},
   ]);
