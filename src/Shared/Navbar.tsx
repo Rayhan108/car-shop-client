@@ -11,7 +11,7 @@ import { Button } from "@/components/ui/button";
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const navigate = useNavigate();
-  const [mode, setMode] = useState("light");
+
 
   // console.log(mode);
   const toggleMenu = () => {
@@ -29,8 +29,8 @@ const Navbar = () => {
   return (
     <nav
       className={cn(
-        " fixed top-0 w-full z-50 shadow-md",
-        mode == "dark" && "bg-white text-black"
+        " fixed top-0 bg-white w-full z-50 shadow-md",
+       
       )}
     >
       <div className=" mx-auto px-4 sm:px-6 lg:px-8">
@@ -152,13 +152,9 @@ const Navbar = () => {
                 <ShoppingCart className="inline h-5 w-5 mr-2" />
                 Cart
               </Link>
-              <div
-                onClick={() =>
-                  setMode(localStorage.getItem("vite-ui-theme") as string)
-                }
-              >
+           
                 {/* <ModeToggle /> */}
-              </div>
+       
               <Link
                 to="/dashboard"
                 className="block px-3 py-2 text-base font-medium  hover:bg-gray-50"

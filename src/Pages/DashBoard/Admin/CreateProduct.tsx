@@ -3,31 +3,34 @@ import { FieldValues, SubmitHandler, useForm } from "react-hook-form";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 
-import { useRegisterUserMutation } from "@/redux/features/auth/authApi";
-
-import { useNavigate } from "react-router-dom";
 import { toast } from "sonner";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Textarea } from "@/components/ui/textarea";
+import { useCreateProductMutation } from "@/redux/features/admin/manageProductApi";
 
 const CreateProduct = () => {
   const form = useForm();
-  const navigate = useNavigate();
 
-  const [registerUser] = useRegisterUserMutation();
+  const [createProduct] = useCreateProductMutation();
   const onSubmit: SubmitHandler<FieldValues> = async (data) => {
     // console.log("form data",data);
     try {
-      const userInfo = {
-        name: data.name,
-        email: data.email,
-        password: data.password,
+      const info = {
+        brand: data.brand,
+        model: data.model,
+        year: Number(data.year),
+        category: data.category,
+        image: data.image,
+        description: data.description,
+        quantity: Number(data.quantity),
+        price:Number(data.price),
+        inStock: true,
       };
-      //   console.log("user info", userInfo);
-      const res = await registerUser(userInfo).unwrap();
+        // console.log(" info", info);
+      const res = await createProduct(info).unwrap();
       // console.log(res);
       toast.success(res?.message);
-      navigate("/login");
+      form.reset();
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
     } catch (err: any) {
       toast.error(err?.data?.message);
@@ -38,7 +41,7 @@ const CreateProduct = () => {
     <div className="flex min-h-screen items-center justify-center  p-4">
       <Card className="w-full max-w-md shadow-2xl rounded-2xl bg-white ">
         <CardHeader>
-          <CardTitle className="text-center font-title text-2xl font-bold ">
+          <CardTitle className="text-center text-[#003d1f] font-title text-2xl font-bold ">
             Create A New Product
           </CardTitle>
         </CardHeader>
@@ -68,7 +71,7 @@ const CreateProduct = () => {
               </label>
               <Input
                 {...form.register("model", { required: "Email is required" })}
-                type="email"
+                
                 className="mt-1 block w-full rounded-lg border-gray-300 shadow-sm  dark:text-white"
               />
               {form.formState.errors.model && (
@@ -81,7 +84,7 @@ const CreateProduct = () => {
             {/* Category Field */}
             <div>
               <label className="block font-body text-sm font-medium text-gray-700 dark:text-gray-300">
-                Car Model
+                Category
               </label>
               <Input
                 {...form.register("category", {
@@ -146,6 +149,23 @@ const CreateProduct = () => {
                 <p className="text-red-500 text-xs mt-1">
                   {" "}
                   {Number(form.formState.errors.year.message)}
+                </p>
+              )}
+            </div>
+            {/* Price */}
+            <div>
+              <label className="block font-body text-sm font-medium text-gray-700 dark:text-gray-300">
+                Price
+              </label>
+              <Input
+                {...form.register("price", { required: "year is required" })}
+                type="number"
+                className="mt-1 block w-full rounded-lg border-gray-300 shadow-sm  dark:text-white"
+              />
+              {form.formState.errors.price && (
+                <p className="text-red-500 text-xs mt-1">
+                  {" "}
+                  {Number(form.formState.errors.price.message)}
                 </p>
               )}
             </div>

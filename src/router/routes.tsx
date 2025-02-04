@@ -4,6 +4,9 @@ import AllProduct from "@/Pages/AllProduct/AllProduct";
 import ProductDetails from "@/Pages/AllProduct/ProductDetails";
 import CheckOut from "@/Pages/CheckOut/CheckOut";
 import CreateProduct from "@/Pages/DashBoard/Admin/CreateProduct";
+import ManageProduct from "@/Pages/DashBoard/Admin/ManageProducts";
+import UpdateProduct from "@/Pages/DashBoard/Admin/UpdateProduct";
+
 import DashBoard from "@/Pages/DashBoard/DashBoard";
 import ErrorPage from "@/Pages/ErrorPage/ErrorPage";
 import Home from "@/Pages/Home/Home";
@@ -54,8 +57,16 @@ import {
           element:  <DashBoard />
         },
         {
-          path: "manageUser",
+          path: "createProduct",
           element:  <CreateProduct />
+        },
+        {
+          path: "manageProducts",
+          element:  <ManageProduct />
+        },
+        {
+          path: "updateProduct/:id",
+          element:  <UpdateProduct />
         },
     
  

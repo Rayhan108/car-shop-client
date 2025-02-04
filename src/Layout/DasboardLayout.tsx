@@ -2,7 +2,7 @@
 import { Button } from "@/components/ui/button";
 import { selectCurrentUser } from "@/redux/features/auth/authSlice";
 import { useAppSelector } from "@/redux/hooks";
-import { ArrowRightLeft, Car, Home, House, Menu, UserRoundPen } from "lucide-react";
+import { ArrowRightLeft, Car, Home, House, Menu, SquareChartGantt, UserRoundPen } from "lucide-react";
 import { useState } from "react";
 
 import { Link, Outlet } from "react-router-dom";
@@ -42,11 +42,20 @@ const DashboardLayout = () => {
               
                 <li className="mb-6">
                   <Link
-                    to="/dashboard/manageUser"
+                    to="/dashboard/createProduct"
                     className="flex items-center space-x-4 font-body"
                   >
                    <Car />
                     <span>Create Product</span>
+                  </Link>
+                </li>
+                <li className="mb-6">
+                  <Link
+                    to="/dashboard/manageProducts"
+                    className="flex items-center space-x-4 font-body"
+                  >
+                  <SquareChartGantt />
+                    <span>Manage Product</span>
                   </Link>
                 </li>
                 <li className="mb-6">

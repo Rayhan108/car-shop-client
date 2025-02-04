@@ -47,7 +47,18 @@ const productApi = baseApi.injectEndpoints({
         };
       },
     }),
+  // update product
+
+  updateProduct: builder.mutation({
+    query: (args) => ({
+
+      url: `/car/${args.id}`,
+      method: 'PUT',
+      body: args.data,
+    }),
+    invalidatesTags: ['products'],
+  }),
   }),
 });
 
-export const { useGetAllProductsQuery, useGetSingleProductQuery } = productApi;
+export const { useGetAllProductsQuery, useGetSingleProductQuery ,useUpdateProductMutation} = productApi;
