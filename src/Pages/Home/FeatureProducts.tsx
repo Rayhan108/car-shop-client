@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 
 const FeatureProducts = () => {
   const { data: products, isFetching } = useGetAllProductsQuery(undefined);
-  console.log(products?.data?.result);
+  // console.log(products?.data?.result);
   // console.log(isFetching);
 
   // Loader

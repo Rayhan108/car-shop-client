@@ -1,10 +1,12 @@
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
+import { Helmet } from "react-helmet-async";
 
 const Contact = () => {
   return (
     <div className="bg-white min-h-screen py-12 px-6 sm:px-12 lg:px-24">
+          <Helmet> <title>NextGen Cars | Contact</title></Helmet>
       <div className="max-w-5xl mx-auto bg-gray-50 border border-black rounded-xl shadow-2xl overflow-hidden">
         <div>
           <img

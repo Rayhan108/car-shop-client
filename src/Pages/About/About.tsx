@@ -1,6 +1,9 @@
+import { Helmet } from "react-helmet-async";
+
 const About = () => {
     return (
       <div className="bg-white min-h-screen py-12 px-6 sm:px-12 lg:px-24">
+    <Helmet> <title>NextGen Cars | About</title></Helmet>
         <div className="max-w-7xl mx-auto bg-gray-50 border border-[#003d1f] rounded-xl shadow-2xl overflow-hidden">
           <div>
             <img

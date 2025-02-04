@@ -4,6 +4,7 @@ import { selectCurrentUser } from "@/redux/features/auth/authSlice";
 import { useAppSelector } from "@/redux/hooks";
 import { ArrowRightLeft, Car, Home, House, Menu, SquareChartGantt, UserRoundPen } from "lucide-react";
 import { useState } from "react";
+import { Helmet } from "react-helmet-async";
 
 import { Link, Outlet } from "react-router-dom";
 
@@ -13,10 +14,11 @@ const DashboardLayout = () => {
   const user = useAppSelector(selectCurrentUser)
 
   return (
-    <div className="flex h-screen bg-gray-100">
+    <div className="flex h-screen text-white">
+          <Helmet> <title>NextGen Cars | Dashboard</title></Helmet>
       {/* Sidebar  */}
       <aside
-        className={`fixed inset-y-0 left-0 z-30 w-40 bg-indigo-50 shadow-md p-6 transform ${
+        className={`fixed inset-y-0 left-0 z-30 w-40 bg-[#003d1f] shadow-md p-6 transform ${
           sidebarOpen ? "translate-x-0" : "-translate-x-full"
         } md:translate-x-0 transition-transform duration-300 ease-in-out md:relative md:w-64 lg:w-72 xl:w-80`}
       >
@@ -130,7 +132,7 @@ const DashboardLayout = () => {
              <Menu />
             </Button>
           </div>
-          <h2 className="text-2xl font-title  font-semibold">Dashboard</h2>
+          <h2 className="text-2xl font-title text-black font-semibold">Dashboard</h2>
         </header>
         <main className="flex-1 overflow-x-hidden overflow-y-auto  p-4 sm:p-6 md:p-8 lg:p-10">
           <Outlet></Outlet>
