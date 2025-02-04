@@ -7,10 +7,12 @@ import { toast } from "sonner";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Textarea } from "@/components/ui/textarea";
 import { useCreateProductMutation } from "@/redux/features/admin/manageProductApi";
+import { useState } from "react";
 
 const CreateProduct = () => {
+  const [loading,setLoading]=useState(false)
   const form = useForm();
-
+const [img,setImg]=useState("");
   const [createProduct] = useCreateProductMutation();
   const onSubmit: SubmitHandler<FieldValues> = async (data) => {
     // console.log("form data",data);
@@ -20,7 +22,7 @@ const CreateProduct = () => {
         model: data.model,
         year: Number(data.year),
         category: data.category,
-        image: data.image,
+        image: img,
         description: data.description,
         quantity: Number(data.quantity),
         price:Number(data.price),
@@ -37,6 +39,25 @@ const CreateProduct = () => {
       // console.log(err);
     }
   };
+
+const handleFileUpload:SubmitHandler<FieldValues> = async(event)=>{
+  const file = event.target.files[0];
+  if(!file) return;
+  setLoading(true)
+  const data = new FormData();
+  data.append("file",file)
+  data.append("upload_preset","nextGenCars");
+  data.append("cloud_name","doushb9d0")
+  const res = await fetch("https://api.cloudinary.com/v1_1/doushb9d0/image/upload",{
+    method:"POST",
+    body:data
+  })
+  const uploadImageUrl = await res.json();
+  // console.log(uploadImageUrl.url);
+setImg(uploadImageUrl.url)
+setLoading(false)
+}
+
   return (
     <div className="flex min-h-screen items-center justify-center  p-4">
       <Card className="w-full max-w-md shadow-2xl rounded-2xl bg-white ">
@@ -105,8 +126,9 @@ const CreateProduct = () => {
                 Car Image
               </label>
               <Input
-                {...form.register("image", { required: "image is required" })}
-                type="url"
+              onChange={handleFileUpload}
+                // {...form.register("image", { required: "image is required" })}
+                type="file"
                 className="mt-1 block w-full rounded-lg border-gray-300 shadow-sm  dark:text-white"
               />
               {form.formState.errors.image && (
@@ -187,8 +209,11 @@ const CreateProduct = () => {
               )}
             </div>
             {/* Submit Button */}
-            <Button className="w-full font-body  hover:bg-[#003d1f] text-white py-2 rounded-lg">
-              Submit
+            <Button disabled={loading} className="w-full font-body  hover:bg-[#003d1f] text-white py-2 rounded-lg">
+            {
+              loading ? "Uploading Image":"Submit"
+            }
+            
             </Button>
           </form>
         </CardContent>
