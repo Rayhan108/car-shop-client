@@ -9,6 +9,7 @@ import ManageUser from "@/Pages/DashBoard/Admin/ManageUser";
 import UpdateProduct from "@/Pages/DashBoard/Admin/UpdateProduct";
 
 import DashBoard from "@/Pages/DashBoard/DashBoard";
+import ManageProfile from "@/Pages/DashBoard/User/manageProfile";
 import ErrorPage from "@/Pages/ErrorPage/ErrorPage";
 import Home from "@/Pages/Home/Home";
 import Login from "@/Pages/Login/Login";
@@ -68,6 +69,10 @@ import {
         {
           path: "manageUsers",
           element:  <ManageUser />
+        },
+        {
+          path: "manageProfile",
+          element:  <ManageProfile />
         },
         {
           path: "updateProduct/:id",
