@@ -18,6 +18,7 @@ import ErrorPage from "@/Pages/ErrorPage/ErrorPage";
 import Home from "@/Pages/Home/Home";
 import Login from "@/Pages/Login/Login";
 import Registration from "@/Pages/Registration/Registration";
+import VerifyPayment from "@/Pages/Verify/VerifyPayment";
 import {
     createBrowserRouter,
   } from "react-router-dom";
@@ -48,9 +49,14 @@ import {
             element:<ProductDetails/>,
           },
           {
-            path: "/checkout",
+            path: "/checkout/:id",
             element:<ProtectedRoute role="user"><CheckOut/></ProtectedRoute>,
           },
+        {
+           path:"order/verify",
+            element:<VerifyPayment />,
+
+            },
           {
             path: "/login",
             element: <Login/>,

@@ -16,7 +16,7 @@ const ProductDetails = () => {
   if (isFetching) return <Loader />;
 
   if (error) return toast.error("Something went wrong");
-  const { brand, price, quantity, description, category, image, model, year } =
+  const { _id,brand, price, quantity, description, category, image, model, year } =
     (product?.data || {}) as Tcar;
   return (
     <div className="min-h-screen py-12 px-6 sm:px-12 lg:px-24">
@@ -73,7 +73,7 @@ const ProductDetails = () => {
           </div>
 
           <div className="sm:col-span-4 font-body text-center mt-8 flex justify-center gap-6">
-          <Link to="/checkout">
+          <Link to={`/checkout/${_id}`}>
           <Button className="hover:bg-[#003d1f] bg-[#003d1f] text-white font-bold py-4 px-12 rounded-lg shadow-lg transition duration-300 hover:shadow-2xl transform hover:scale-105">
               Buy Now
             </Button>

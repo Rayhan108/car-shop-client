@@ -19,6 +19,7 @@ createRoot(document.getElementById('root')!).render(
           <div className=''>
           <Toaster />
     <RouterProvider router={router}/>
+    
           </div>
     {/* </ThemeProvider> */}
     </HelmetProvider>
