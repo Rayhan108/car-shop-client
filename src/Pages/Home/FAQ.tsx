@@ -1,4 +1,4 @@
-import SectionTitle from "@/components/SectionTitle/SectionTitle";
+
 import {
   Accordion,
   AccordionContent,
@@ -8,7 +8,10 @@ import {
 const FAQ = () => {
   return (
     <div>
-      <SectionTitle header={"Get Some Answere"} />
+     
+      <h2 className="text-4xl md:py-6  font-extrabold font-title text-center mb-12">
+      Get Some Answere
+      </h2>
       <Accordion
         type="single"
         collapsible

@@ -1,5 +1,5 @@
 import Loader from "@/components/Loader/Loader";
-import SectionTitle from "@/components/SectionTitle/SectionTitle";
+
 import { Button } from "@/components/ui/button";
 import { useGetAllProductsQuery } from "@/redux/features/products/productApi";
 import { Link } from "react-router-dom";
@@ -13,8 +13,10 @@ const FeatureProducts = () => {
   if (isFetching) return <Loader />;
   return (
     <div>
-      <SectionTitle header={"Featured Products"} />
-
+      
+      <h2 className="text-4xl md:py-6  font-extrabold font-title text-center mb-12">
+      Featured Products
+      </h2>
       <div className="grid grid-cols-1  sm:grid-cols-2 lg:grid-cols-3 gap-6">
         {products?.data?.result
           ?.map((product) => (

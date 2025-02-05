@@ -154,21 +154,23 @@ const Navbar = () => {
                 Dashboard
               </Link>
               {user ? (
+              <Button>
                 <Link
                   onClick={() => handleLogout()}
                   to=""
-                  className="block px-4 py-2 text-sm  hover:bg-gray-100"
+                  className="block px-4 py-2 text-sm  "
                 >
                   signOut
-                </Link>
-              ) : (
-                <Link
-                  to="/login"
-                  className="block px-4 py-2 text-sm  hover:bg-gray-100"
-                >
+                </Link>{" "}
+              </Button>
+            ) : (
+              <Button>
+                {" "}
+                <Link to="/login" className="block px-4 py-2 text-sm  ">
                   Login
-                </Link>
-              )}
+                </Link>{" "}
+              </Button>
+            )}
             </div>
           </div>
         )}
