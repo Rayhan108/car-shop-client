@@ -19,13 +19,13 @@ const {id} = useParams();
 const { data: product, isFetching } = useGetSingleProductQuery({ id });
   const {_id, brand, price, quantity, description, category, image, model, year } =
     (product?.data || {}) as Tcar;
-  console.log(product?.data);
+  // console.log(product?.data);
 // Loader component
 if (isFetching) return <Loader />;
 
 
     const onSubmit: SubmitHandler<FieldValues> = async (data) => {
-      console.log("form data",data);
+      // console.log("form data",data);
       try {
         const info = {
         

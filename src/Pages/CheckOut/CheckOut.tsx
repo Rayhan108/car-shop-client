@@ -18,14 +18,12 @@ const CheckOut = () => {
     useCreateOrderMutation();
 
   const handlePlaceOrder = async () => {
-  try{
+
     const data = {
         products:[{product:{_id}, quantity:1}]
     }
     await createOrder(data);
-  }catch(err){
-    console.log(err);
-  }
+
   };
 
   const toastId = "cart";

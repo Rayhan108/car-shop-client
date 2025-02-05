@@ -9,7 +9,7 @@ import { toast } from "sonner";
 const ManageProduct = () => {
   const { data: products, isFetching } = useGetAllProductsQuery(undefined);
   const [deleteProduct, { isLoading}] = useDeleteProductMutation();
-  console.log(products);
+  // console.log(products);
  // Handle delete
  const handleDelete = async (id  : string) => {
 

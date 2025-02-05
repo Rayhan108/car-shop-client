@@ -222,7 +222,7 @@ const AllProduct = () => {
   };
   // console.log(queryParams);
   const { data: products,  } = useGetAllProductsQuery(queryParams);
-  console.log(products);
+  // console.log(products);
   // console.log(isFetching);
 
   // Loader
