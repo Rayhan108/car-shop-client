@@ -1,50 +1,59 @@
-# React + TypeScript + Vite
+# NextGen Cars
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+[Live Site](https://car-shop-client-smoky.vercel.app/)  
+[GitHub Repository](https://github.com/Rayhan108/car-shop-client)
 
-Currently, two official plugins are available:
+## Overview
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Car Shop is a fully functional e-commerce platform where users can **search for cars, filter them by various criteria, and buy their desired cars**. The application integrates the **ShurjoPay payment gateway** for secure transactions and offers a seamless user experience. It is built using modern technologies for a responsive and efficient interface.
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+## Features
 
-- Configure the top-level `parserOptions` property like this:
+- 🔍 **Search Cars:** Find cars quickly using a powerful search functionality.
+- 🔄 **Filter Cars:** Filter cars by attributes such as price, make, or model.
+- 💳 **Buy Cars:** Easy checkout process with **ShurjoPay** payment integration.
+- 🛠️ **Admin Features:** Add, update, and delete car details (future enhancements).Manage Order(CRUD),Manage User(CRUD)
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+---
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
+## Technologies Used
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
+### Frontend
+- **React**: Component-based UI library.
+- **React Router DOM**: For routing.
+- **Redux Toolkit**: State management.
+- **React Hook Form**: For form handling.
+- **Tailwind CSS**: For modern styling.
+- **Radix UI**: For accessible UI components.
+- **Recharts**: Data visualization (e.g., charts and analytics).
+
+### Tools & Utilities
+- **Framer Motion**: Smooth animations.
+- **LocalForage**: Storage for offline capabilities.
+- **Lucide React**: Icon library.
+- **JWT**: User authentication with JSON Web Tokens.
+- **ShurjoPay Integration**: Secure payment gateway for transactions.
+
+---
+
+## Installation
+
+To run this project locally, follow these steps:
+
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/Rayhan108/car-shop-client.git
+   cd car-shop-client
+2. npm install
+3. npm run dev
+
+---
+
+
+## Admin Credential:
+
+# Email: admin@admin.com
+# Password: admin123
