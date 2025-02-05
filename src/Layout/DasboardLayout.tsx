@@ -62,6 +62,15 @@ const DashboardLayout = () => {
                 </li>
                 <li className="mb-6">
                   <Link
+                    to="/dashboard/manageOrder"
+                    className="flex items-center space-x-4 font-body"
+                  >
+                  <SquareChartGantt />
+                    <span>Manage Orders</span>
+                  </Link>
+                </li>
+                <li className="mb-6">
+                  <Link
                     to="/dashboard/manageUsers"
                     className="flex items-center space-x-4 font-body"
                   >

@@ -1,4 +1,4 @@
-import Loader from "@/components/Loader/Loader";
+
 import ProductCard from "@/components/Product-Card/ProductCard";
 import { useGetAllProductsQuery } from "@/redux/features/products/productApi";
 import { useState } from "react";
@@ -205,6 +205,7 @@ const AllProduct = () => {
   const [searchTerm, setSearchTerm] = useState("");
   const [categoryFilter, setCategoryFilter] = useState("");
   const [brandFilter, setBrandFilter] = useState("");
+  // console.log(brandFilter);
   const [modelFilter, setModelFilter] = useState("");
   const [sortOrder, setSortOrder] = useState("asc");
   const [availability, setAvailability] = useState("");
@@ -218,12 +219,13 @@ const AllProduct = () => {
     maxPrice: priceRange[1] || undefined,
     availability: availability || undefined,
   };
-  const { data: products, isFetching } = useGetAllProductsQuery(queryParams);
+  // console.log(queryParams);
+  const { data: products,  } = useGetAllProductsQuery(queryParams);
   // console.log(products);
   // console.log(isFetching);
 
   // Loader
-  if (isFetching) return <Loader />;
+  // if (isFetching) return <Loader />;
   // if (!products && !isFetching) return <div>No product found</div>;
   return (
     <div className="flex flex-col md:flex-row min-h-screen ">
@@ -239,7 +241,7 @@ const AllProduct = () => {
           type="text"
           placeholder="Search Products"
           value={searchTerm}
-          onChange={(e) => setSearchTerm(e.target.value)}
+          onChange={(e) => setSearchTerm(e.target.value) }
           className="w-full px-4 py-2 mb-4 border rounded-lg focus:ring"
         />
         <label className="block mb-2 font-title font-bold">Price Range</label>

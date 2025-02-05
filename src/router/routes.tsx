@@ -7,6 +7,7 @@ import ProductDetails from "@/Pages/AllProduct/ProductDetails";
 import CheckOut from "@/Pages/CheckOut/CheckOut";
 import Contact from "@/Pages/Contact/Contact";
 import CreateProduct from "@/Pages/DashBoard/Admin/CreateProduct";
+import ManageOrder from "@/Pages/DashBoard/Admin/ManageOrder";
 import ManageProduct from "@/Pages/DashBoard/Admin/ManageProducts";
 import ManageUser from "@/Pages/DashBoard/Admin/ManageUser";
 import UpdateProduct from "@/Pages/DashBoard/Admin/UpdateProduct";
@@ -76,6 +77,10 @@ import {
         {
           path: "manageProducts",
           element: <ProtectedRoute role="admin"> <ManageProduct /></ProtectedRoute>
+        },
+        {
+          path: "manageOrder",
+          element: <ProtectedRoute role="admin"> <ManageOrder /></ProtectedRoute>
         },
         {
           path: "manageUsers",
