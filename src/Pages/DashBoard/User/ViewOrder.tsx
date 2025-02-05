@@ -20,7 +20,7 @@ const ViewOrder = () => {
 
   return (
     <div className="p-4 md:p-6  lg:p-8">
-      <h2 className="text-2xl font-bold text-center text-[#003d1f] mb-6">Manage Products</h2>
+      <h2 className="text-2xl font-bold text-center text-[#003d1f] mb-6">My Products</h2>
       <div className="overflow-x-auto  shadow-lg rounded-xl p-4">
         <Table className="w-full border-collapse border hover:border-[#003d1f] border-[#003d1f]">
           <TableCaption className="font-body">A list of your Ordered products.</TableCaption>
