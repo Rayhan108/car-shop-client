@@ -1,5 +1,6 @@
 
 import ProductCard from "@/components/Product-Card/ProductCard";
+import { Pagination } from "@/components/ui/pagination";
 import { useGetAllProductsQuery } from "@/redux/features/products/productApi";
 import { useState } from "react";
 import { Helmet } from "react-helmet-async";
@@ -221,7 +222,7 @@ const AllProduct = () => {
   };
   // console.log(queryParams);
   const { data: products,  } = useGetAllProductsQuery(queryParams);
-  // console.log(products);
+  console.log(products);
   // console.log(isFetching);
 
   // Loader
@@ -336,6 +337,7 @@ const AllProduct = () => {
             <ProductCard key={product._id} product={product} />
           ))}
         </div>
+        <Pagination/>
       </main>
     </div>
   );

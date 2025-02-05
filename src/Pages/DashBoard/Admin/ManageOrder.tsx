@@ -35,7 +35,7 @@ const ManageOrder = () => {
     refetchOnMountOrArgChange: true,
   });
   const orderData: Order[] = data?.data;
-  console.log(orderData);
+//   console.log(orderData);
   return isLoading ? (
     <Skeleton />
   ) : (

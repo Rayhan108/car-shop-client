@@ -14,6 +14,7 @@ import UpdateProduct from "@/Pages/DashBoard/Admin/UpdateProduct";
 
 import DashBoard from "@/Pages/DashBoard/DashBoard";
 import ManageProfile from "@/Pages/DashBoard/User/ManageProfile";
+import ViewOrder from "@/Pages/DashBoard/User/ViewOrder";
 import ErrorPage from "@/Pages/ErrorPage/ErrorPage";
 import Home from "@/Pages/Home/Home";
 import Login from "@/Pages/Login/Login";
@@ -100,6 +101,10 @@ import {
         {
           path: "manageProfile",
           element: <ProtectedRoute role="user"> <ManageProfile /></ProtectedRoute>
+        },
+        {
+          path: "myOrders",
+          element: <ProtectedRoute role="user"> <ViewOrder /></ProtectedRoute>
         },
  
       ],},
