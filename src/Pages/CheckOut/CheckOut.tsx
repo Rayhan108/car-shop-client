@@ -47,7 +47,7 @@ const CheckOut = () => {
     }
   }, [data?.data, data?.message, error,isError,  isLoading, isSuccess]);
   return (
-    <div className="text-[#003d1f] font-body">
+    <div className="text-[#003d1f]  font-body">
       <div className="flex flex-col gap-6 p-8 shadow-2xl rounded-lg max-w-md mx-auto border-2 border-[#003d1f]">
         <div className="border-b-2 border-[#003d1f] pb-4">
           <h1 className="text-2xl font-title font-semibold">Your Cart</h1>

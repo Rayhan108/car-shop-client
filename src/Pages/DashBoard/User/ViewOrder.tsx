@@ -7,6 +7,7 @@ import { Table, TableBody, TableCaption, TableCell, TableHead, TableHeader, Tabl
 import { useSingleOrderQuery } from "@/redux/features/order/orderApi";
 import { useAppSelector } from "@/redux/hooks";
 import { selectCurrentUser } from "@/redux/features/auth/authSlice";
+import { cn } from "@/lib/utils";
 
 const ViewOrder = () => {
     const user = useAppSelector(selectCurrentUser);
@@ -41,7 +42,7 @@ const ViewOrder = () => {
               >
                 <TableCell className="p-3 font-body font-medium">{item.products[0].product.brand}</TableCell>
                 <TableCell className="p-3 font-body font-medium">₺ {item.totalPrice}</TableCell>
-                <TableCell className="p-3 font-body font-medium">{item.transaction.bank_status}</TableCell>
+                <TableCell className={cn("p-3 font-body font-bold",item.transaction.bank_status==="Failed"? "text-red-700":"text-green-700")}>{item.transaction.bank_status}</TableCell>
                 
                 <TableCell className="p-3 font-body font-medium">{item.transaction.method}</TableCell>
                 <TableCell className="p-3 font-body font-medium text-center">{item.transaction.id}</TableCell>

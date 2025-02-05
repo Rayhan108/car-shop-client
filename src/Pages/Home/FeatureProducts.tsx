@@ -42,9 +42,11 @@ const FeatureProducts = () => {
               </p>
 
               <div className="flex justify-center gap-4 mt-4">
+              <Link to={`/product/${product._id}`}>
                 <Button className=" font-body  text-white hover:bg-[#002a14]">
                   View Details
                 </Button>
+                </Link>
               </div>
             </div>
           ))
