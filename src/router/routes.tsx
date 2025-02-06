@@ -23,6 +23,7 @@ import VerifyPayment from "@/Pages/Verify/VerifyPayment";
 import {
     createBrowserRouter,
   } from "react-router-dom";
+  
   const router = createBrowserRouter([
     {
         path: "/",
@@ -75,7 +76,7 @@ import {
       children: [
         {
           index:true,
-          element:  <DashBoard />
+          element: <ProtectedRoute role="admin" > <DashBoard /></ProtectedRoute>
         },
         {
           path: "createProduct",
